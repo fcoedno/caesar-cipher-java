@@ -3,19 +3,24 @@ package com.francisco.foobarqix;
 public class FooBarQix {
   String compute(String number)  {
     int value = Integer.valueOf(number);
+    StringBuilder computedValue = new StringBuilder();
+
+    if (0 != value % 3 && 0 != value % 5 && 0 != value % 7) {
+      return number;
+    }
 
     if (0 == value % 3) {
-      return "Foo";
+      computedValue.append("Foo");
     }
 
     if (0 == value % 5) {
-      return "Bar";
+      computedValue.append("Bar");
     }
 
     if (0 == value % 7) {
-      return "Qix";
+      computedValue.append("Qix");
     }
 
-    return number;
+    return computedValue.toString();
   }
 }
