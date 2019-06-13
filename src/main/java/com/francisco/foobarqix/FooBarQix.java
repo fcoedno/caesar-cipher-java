@@ -2,37 +2,51 @@ package com.francisco.foobarqix;
 
 public class FooBarQix {
   String compute(String number) {
-    int value = Integer.valueOf(number);
+    return compute(new Number(number));
+  }
+
+  String compute(Number number) {
     StringBuilder computedValue = new StringBuilder();
 
-    if (0 != value % 3 && 0 != value % 5 && 0 != value % 7) {
-      return number;
+    if (!number.isDivisibleByAnyOf(3, 5, 7)) {
+      processDigits(number, computedValue);
+      return computedValue.toString();
     }
 
-    processValue(value, computedValue);
-    processDigits(number.toCharArray(), computedValue);
+    processValue(number, computedValue);
+    processDigits(number, computedValue);
 
     return computedValue.toString();
   }
 
-  private void processValue(int value, StringBuilder computedValue) {
-    if (0 == value % 3) {
+  private void processValue(Number number, StringBuilder computedValue) {
+    if (number.isDivisibleBy(3)) {
       computedValue.append("Foo");
     }
 
-    if (0 == value % 5) {
+    if (number.isDivisibleBy(5)) {
       computedValue.append("Bar");
     }
 
-    if (0 == value % 7) {
+    if (number.isDivisibleBy(7)) {
       computedValue.append("Qix");
     }
   }
 
-  private void processDigits(char[] digits, StringBuilder computedValue) {
-    for (Character digit : digits) {
+  private void processDigits(Number number, StringBuilder computedValue) {
+    for (char digit : number.digits()) {
       if ('3' == digit) {
         computedValue.append("Foo");
+        continue;
+      }
+
+      if ('5' == digit) {
+        computedValue.append("Bar");
+        continue;
+      }
+
+      if (!number.isDivisibleByAnyOf(3, 5, 7)) {
+        computedValue.append(digit);
       }
     }
   }

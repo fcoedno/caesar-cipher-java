@@ -36,4 +36,14 @@ public class FooBarQixTest {
   public void replaceDigit3WithFoo() {
     assertEquals("FooFoo", fooBarQix.compute("3"));
   }
+
+  @Test
+  public void replaceDigit3InNumbersThatAreNotDivisibleBy3Nor5Nor7() {
+    assertEquals("4Foo", fooBarQix.compute("43"));
+  }
+
+  @Test
+  public void replaceDigit5WithBar() {
+    assertEquals("BarFoo", fooBarQix.compute("53"));
+  }
 }
