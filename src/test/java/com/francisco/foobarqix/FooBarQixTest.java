@@ -31,4 +31,9 @@ public class FooBarQixTest {
   public void returnsFooQixWhenTheNumberIsDivisibleByBoth3And7() {
     assertEquals("FooQix", fooBarQix.compute("21"));
   }
+
+  @Test
+  public void replaceDigit3WithFoo() {
+    assertEquals("FooFoo", fooBarQix.compute("3"));
+  }
 }
