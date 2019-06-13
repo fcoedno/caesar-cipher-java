@@ -9,7 +9,10 @@
 plugins {
     // Apply the java-library plugin to add support for Java Library
     id 'java-library'
+    id 'com.adarshr.test-logger' version '1.7.0'
 }
+
+apply plugin: 'com.adarshr.test-logger'
 
 repositories {
     // Use jcenter for resolving your dependencies.
@@ -28,8 +31,6 @@ dependencies {
     testImplementation 'junit:junit:4.12'
 }
 
-test {
-    testLogging {
-        exceptionFormat = "full"
-    }
+testlogger {
+    theme 'mocha'
 }
