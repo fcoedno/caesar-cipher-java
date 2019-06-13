@@ -1,4 +1,4 @@
-package com.francisco.caesar;
+package com.francisco.kata.caesar;
 
 import static org.junit.Assert.assertEquals;
 

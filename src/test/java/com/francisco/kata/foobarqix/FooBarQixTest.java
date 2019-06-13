@@ -1,4 +1,4 @@
-package com.francisco.foobarqix;
+package com.francisco.kata.foobarqix;
 
 import static org.junit.Assert.*;
 

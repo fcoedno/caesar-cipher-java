@@ -1,4 +1,4 @@
-package com.francisco.caesar;
+package com.francisco.kata.caesar;
 
 public class CaesarCipherDecoder {
   private Alphabet alphabet;
