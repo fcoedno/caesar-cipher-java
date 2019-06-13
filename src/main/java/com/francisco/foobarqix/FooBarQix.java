@@ -5,17 +5,20 @@ public class FooBarQix {
     return compute(new Number(number));
   }
 
-  String compute(Number number) {
+  private String compute(Number number) {
     StringBuilder computedValue = new StringBuilder();
 
-    if (!number.isDivisibleByAnyOf(3, 5, 7)) {
+    if (number.isDivisibleByAnyOf(3, 5, 7)) {
+      processValue(number, computedValue);
       processDigits(number, computedValue);
       return computedValue.toString();
     }
 
-    processValue(number, computedValue);
-    processDigits(number, computedValue);
+    if (!number.hasAnyOf('3', '5', '7')) {
+      return number.toString();
+    }
 
+    processDigits(number, computedValue);
     return computedValue.toString();
   }
 
@@ -45,8 +48,8 @@ public class FooBarQix {
         continue;
       }
 
-      if (!number.isDivisibleByAnyOf(3, 5, 7)) {
-        computedValue.append(digit);
+      if ('7' == digit) {
+        computedValue.append("Qix");
       }
     }
   }

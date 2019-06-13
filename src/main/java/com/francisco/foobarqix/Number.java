@@ -22,11 +22,22 @@ public class Number {
     return 0 == numberValue % value;
   }
 
-  int value() {
-    return numberValue;
-  }
-
   char[] digits() {
     return number.toCharArray();
+  }
+
+  @Override
+  public String toString() {
+    return number;
+  }
+
+  public boolean hasAnyOf(char ...characters) {
+    for (char character : characters) {
+      if (0 <= number.indexOf(character)) {
+        return true;
+      }
+    }
+
+    return false;
   }
 }
