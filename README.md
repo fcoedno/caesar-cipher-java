@@ -12,5 +12,6 @@ List of solved katas:
 
  1. Caesar cipher encoding/decoding
  2. FooBarQix
+ 3. Potter
  
 For more information about the katas refer to the [KataCatalogue](http://codingdojo.org/KataCatalogue/).
